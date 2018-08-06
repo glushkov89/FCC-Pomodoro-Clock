@@ -36,6 +36,20 @@ export default function(state = {}, action) {
 			} else {
 				return state;
 			}
+		case "PAUSE":
+			return {
+				...state,
+				pause: state.pause ? false : true
+			};
+
+		case "RESET":
+			return {
+				...state,
+				stop: true,
+				pause: false,
+				break: 5,
+				session: 25
+			};
 		default:
 			return state;
 	}

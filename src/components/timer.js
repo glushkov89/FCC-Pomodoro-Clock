@@ -8,7 +8,8 @@ const mapStateToProps = (state) => {
 	return {
 		session: state.input.session,
 		break: state.input.break,
-		stop: state.timer.stop
+		stop: state.input.stop,
+		pause: state.input.pause
 	};
 };
 
@@ -18,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
 
 class Timer extends Component {
 	render() {
-		console.log(this.props);
+		//		console.log(this.props);
 		if (this.props.stop) {
 			return (
 				<div id="display">

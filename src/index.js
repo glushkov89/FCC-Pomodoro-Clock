@@ -9,8 +9,7 @@ import PomodoroClock from "./PomodoroClock";
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 const initialState = {
-	input: { session: 25, break: 5 },
-	timer: { pause: false, stop: true }
+	input: { session: 25, break: 5, pause: false, stop: true }
 };
 
 ReactDOM.render(
