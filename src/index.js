@@ -3,12 +3,14 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 
-import PomodoroClock from "./PomodoroClock";
 import reducers from "./reducers";
+
+import PomodoroClock from "./PomodoroClock";
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 const initialState = {
-	input: { session: 25, break: 5 }
+	input: { session: 25, break: 5 },
+	timer: { pause: false, stop: true }
 };
 
 ReactDOM.render(

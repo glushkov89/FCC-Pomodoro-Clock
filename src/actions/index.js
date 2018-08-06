@@ -17,9 +17,24 @@ export function increaseBreak() {
 		payload: 1
 	};
 }
+
 export function decreaseBreak() {
 	return {
 		type: "BREAK_DEC",
 		payload: -1
+	};
+}
+
+export function togglePause() {
+	return {
+		type: "PAUSE",
+		payload: null
+	};
+}
+
+export function reset() {
+	return {
+		type: "RESET",
+		payload: null
 	};
 }
