@@ -60,10 +60,18 @@
 
 import React, { Component } from "react";
 
+//Containers
+import Input from "./containers/input";
+
 class PomodoroClock extends Component {
 	render() {
 		//	console.log(this.props);
-		return <div>Pomodoro Clock goes here.</div>;
+		return (
+			<div>
+				Pomodoro Clock.
+				<Input />
+			</div>
+		);
 	}
 }
 

@@ -1,4 +1,3 @@
-//Input actions--OK
 export function increaseSession() {
 	return {
 		type: "SESSION_INC",
