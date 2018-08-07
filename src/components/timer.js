@@ -2,34 +2,77 @@ import React, { Component } from "react";
 
 //Components
 import Display from "./display";
+import { DEF_BREAK, DEF_SESSION, SPEED } from "../components/constants";
 
 class Timer extends Component {
 	state = {
-		breakTimerCount: 0,
-		sessionTimerCount: 0,
-		running: "Session"
+		breakTimerCount: DEF_BREAK * 60,
+		sessionTimerCount: DEF_SESSION * 60,
+		running: "Session",
+		timer: null
 	};
 
 	componentWillMount() {
 		this.setState({
-			breakTimerCount: this.props.break * 60,
-			sessionTimerCount: this.props.session * 60
+			breakTimerCount: DEF_BREAK * 60,
+			sessionTimerCount: DEF_SESSION * 60
 		});
 	}
 
-	// componentDidUpdate() {
-	// 	if (this.props.stop) {
-	// 		if (this.props.currtimer) this.props.clearTimer();
-	// 		this.props.setSessionTimer(this.props.session * 60);
-	// 		this.props.setBreakTimer(this.props.break * 60);
-	// 	}
-	// 	if (!this.props.pause) {
-	// 		this.props.stopTimer(false);
-	// 		this.handleTimer();
-	// 	} else {
-	// 		this.props.clearTimer();
-	// 	}
-	// }
+	componentDidUpdate() {
+		console.log("<Timer/> updated");
+		if (this.props.resetFlag) {
+			this.stopCountdown();
+			this.setState({
+				breakTimerCount: DEF_BREAK * 60,
+				sessionTimerCount: DEF_SESSION * 60,
+				running: "Session"
+			});
+			this.props.resetControls();
+		}
+		if (this.props.pause) {
+			if (this.state.timer) this.stopCountdown();
+		} else {
+			if (!this.state.timer) {
+				this.state.running === "Session"
+					? this.startCountdown(this.tickSessionTimer)
+					: this.startCountdown(this.tickBreakTimer);
+			}
+		}
+	}
+
+	tickBreakTimer = () => {
+		if (this.state.breakTimerCount > 0) {
+			this.setState({ breakTimerCount: this.state.breakTimerCount - 1 });
+		} else {
+			this.stopCountdown();
+		}
+	};
+
+	tickSessionTimer = () => {
+		if (this.state.sessionTimerCount > 0) {
+			this.setState({ sessionTimerCount: this.state.sessionTimerCount - 1 });
+		} else {
+			this.stopCountdown();
+		}
+	};
+
+	startCountdown = (callback) => {
+		if (!this.state.timer) {
+			this.setState({ timer: setInterval(callback, SPEED) });
+		}
+	};
+
+	stopCountdown = () => {
+		console.log("Stopping Timer");
+		if (this.state.timer) {
+			clearInterval(this.state.timer);
+			this.setState({ timer: null });
+			console.log("Timer stopped");
+		} else {
+			console.log("No Timer to stop");
+		}
+	};
 
 	// componentWillUnmount() {
 	// 	this.props.clearTimer();
