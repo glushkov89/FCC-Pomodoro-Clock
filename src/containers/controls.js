@@ -1,27 +1,22 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-
-import * as actions from "../actions";
 
 //Components
-import Button from "../components/button";
-
-const mapDispatchToProps = (dispatch) => {
-	return bindActionCreators(actions, dispatch);
-};
+import Timer from "../components/timer";
 
 class Controls extends Component {
+	state = {
+		session: 25,
+		break: 5
+	};
+
 	render() {
 		return (
 			<div id="controls">
-				<Button id={"reset"} click={this.props.reset} />
+				Controls
+				<Timer {...this.state} />
 			</div>
 		);
 	}
 }
 
-export default connect(
-	null,
-	mapDispatchToProps
-)(Controls);
+export default Controls;

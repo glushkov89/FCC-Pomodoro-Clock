@@ -1,33 +1,37 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-// import { bindActionCreators } from "redux";
-
-// import * as actions from "../actions";
-
-const mapStateToProps = (state) => {
-	return {
-		session: state.input.session,
-		break: state.input.break
-	};
-};
-
-// const mapDispatchToProps = (dispatch) => {
-// 	return bindActionCreators(actions, dispatch);
-// };
 
 class Display extends Component {
+	getMinutes = () => {
+		switch (this.props.running) {
+			case "Session":
+				return Math.floor(this.props.sessionTimerCount / 60);
+			case "Break":
+				return Math.floor(this.props.breakTimerCount / 60);
+			default:
+				break;
+		}
+	};
+	getSeconds = () => {
+		switch (this.props.running) {
+			case "Session":
+				return ("0" + (this.props.sessionTimerCount % 60)).slice(-2);
+			case "Break":
+				return ("0" + (this.props.breakTimerCount % 60)).slice(-2);
+			default:
+				break;
+		}
+	};
 	render() {
-		console.log(this.props);
-		//		console.log("00" + 1);
 		return (
-			<div>
-				<div id="time-left">{this.props.session}</div>
+			<div id="display">
+				Display.
+				<div id="timer-label">{this.props.running}</div>
+				<div id="time-left">
+					{this.getMinutes()}:{this.getSeconds()}
+				</div>
 			</div>
 		);
 	}
 }
 
-export default connect(
-	mapStateToProps,
-	null
-)(Display);
+export default Display;

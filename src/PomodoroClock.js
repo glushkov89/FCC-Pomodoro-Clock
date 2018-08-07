@@ -61,20 +61,13 @@
 import React, { Component } from "react";
 
 //Containers
-import Input from "./containers/input";
 import Controls from "./containers/controls";
-
-//Components
-import Timer from "./components/timer";
 
 class PomodoroClock extends Component {
 	render() {
-		//	console.log(this.props);
 		return (
-			<div>
+			<div id="pomodoro-clock">
 				Pomodoro Clock.
-				<Input />
-				<Timer />
 				<Controls />
 			</div>
 		);
