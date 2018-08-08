@@ -69,6 +69,10 @@ class PomodoroClock extends Component {
 			<div id="pomodoro-clock">
 				Pomodoro Clock.
 				<Controls />
+				<audio
+					id="beep"
+					src="https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3"
+				/>
 			</div>
 		);
 	}

@@ -1,76 +1,103 @@
 import React, { Component } from "react";
 
 //Components
-import Timer from "../components/timer";
+//import Timer from "../components/timer";
+import Timer from "../components/timer_stateful";
 import { DEF_BREAK, DEF_SESSION } from "../components/constants";
 
 class Controls extends Component {
 	state = {
 		session: DEF_SESSION,
 		break: DEF_BREAK,
-		resetFlag: false,
-		pause: true
-	};
-
-	setResetFlag = (bool) => {
-		this.setState({ resetFlag: bool });
-	};
-
-	setResetFlag = (bool) => {
-		this.setState({ resetFlag: bool });
+		ctrlstate: "stop"
 	};
 
 	resetControls = () => {
 		this.setState({
 			session: DEF_SESSION,
 			break: DEF_BREAK,
-			resetFlag: false,
-			pause: true
+			ctrlstate: "reset"
 		});
 	};
 
-	togglePause = () => {
-		this.setState({ pause: this.state.pause ? false : true });
+	stop = () => {
+		this.setState({ ctrlstate: "stop" });
 	};
+	// reset = () => {
+	// 	this.setState({ ctrlstate: "reset" });
+	// };
+	playPause = () => {
+		switch (this.state.ctrlstate) {
+			case "stop":
+			case "pause":
+			case "reset":
+				this.setState({ ctrlstate: "play" });
+				return;
+			case "play":
+				this.setState({ ctrlstate: "pause" });
+				return;
+
+			default:
+				return;
+		}
+	};
+	// pause = () => {
+	// 	this.setState({ ctrlstate: "pause" });
+	// };
+	// play = () => {
+	// 	this.setState({ ctrlstate: "play" });
+	// };
 
 	incrBreak = () => {
-		if (this.state.break < 60 && this.state.pause) {
-			this.setState({ break: this.state.break + 1 });
+		if (this.state.ctrlstate === "stop" || this.state.ctrlstate === "reset") {
+			if (this.state.break < 60) {
+				this.setState({ break: this.state.break + 1 });
+			}
 		}
 	};
 
 	decrBreak = () => {
-		if (this.state.break > 1 && this.state.pause) {
-			this.setState({ break: this.state.break - 1 });
+		if (this.state.ctrlstate === "stop" || this.state.ctrlstate === "reset") {
+			if (this.state.break > 1) {
+				this.setState({ break: this.state.break - 1 });
+			}
 		}
 	};
 
 	incrSession = () => {
-		if (this.state.session < 60 && this.state.pause) {
-			this.setState({ session: this.state.session + 1 });
+		if (this.state.ctrlstate === "stop" || this.state.ctrlstate === "reset") {
+			if (this.state.session < 60) {
+				this.setState({ session: this.state.session + 1 });
+			}
 		}
 	};
 
 	decrSession = () => {
-		if (this.state.session > 1 && this.state.pause) {
-			this.setState({ session: this.state.session - 1 });
+		if (this.state.ctrlstate === "stop" || this.state.ctrlstate === "reset") {
+			if (this.state.session > 1) {
+				this.setState({ session: this.state.session - 1 });
+			}
 		}
 	};
 
-	controls = {
-		togglePause: this.togglePause,
-		resetControls: this.resetControls
-	};
+	// controls = {
+	// 	stop: this.stop,
+	// 	playPause: this.play,
+	// 	pause: this.pause
+	// };
 
 	render() {
 		return (
 			<div id="controls">
 				Controls
-				<button onClick={this.togglePause} id="start_stop">
+				<button onClick={this.playPause} id="start_stop">
 					Play/Pause
 				</button>
-				<button onClick={() => this.setResetFlag(true)} id="reset">
+				<button onClick={this.resetControls} id="reset">
 					Reset
+				</button>
+				<button onClick={this.stop} id="reset">
+					Stop
 				</button>
 				<br />
 				<button onClick={this.decrBreak} id="break-decrement">
@@ -90,7 +117,10 @@ class Controls extends Component {
 				<button onClick={this.incrSession} id="session-increment">
 					UP
 				</button>
-				<Timer {...this.state} {...this.controls} />
+				<Timer
+					{...this.state}
+					// {...this.controls}
+				/>
 			</div>
 		);
 	}

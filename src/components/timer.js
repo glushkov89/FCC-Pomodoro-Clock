@@ -5,128 +5,159 @@ import Display from "./display";
 import { DEF_BREAK, DEF_SESSION, SPEED } from "../components/constants";
 
 class Timer extends Component {
-	state = {
-		breakTimerCount: DEF_BREAK * 60,
-		sessionTimerCount: DEF_SESSION * 60,
-		running: "Session",
+	// state = {
+	// 	breakTC: DEF_BREAK * 60,
+	// 	sessionTC: DEF_SESSION * 60,
+	// 	running: "Session"
+	// };
+
+	timer = {
+		breakBuf: DEF_BREAK * 60,
+		sessionBuf: DEF_SESSION * 60,
 		timer: null
 	};
 
-	componentWillMount() {
-		this.setState({
-			breakTimerCount: DEF_BREAK * 60,
-			sessionTimerCount: DEF_SESSION * 60
-		});
-	}
+	display = {
+		breakTC: DEF_BREAK * 60,
+		sessionTC: DEF_SESSION * 60,
+		running: "Session"
+	};
+
+	// componentWillMount() {
+	// 	this.setState({
+	// 		breakTimerCount: DEF_BREAK * 60,
+	// 		sessionTimerCount: DEF_SESSION * 60
+	// 	});
+	// }
 
 	componentDidUpdate() {
-		console.log("<Timer/> updated");
-		if (this.props.resetFlag) {
-			this.stopCountdown();
-			this.setState({
-				breakTimerCount: DEF_BREAK * 60,
-				sessionTimerCount: DEF_SESSION * 60,
-				running: "Session"
-			});
-			this.props.resetControls();
-		}
-		if (this.props.pause) {
-			if (this.state.timer) this.stopCountdown();
-		} else {
-			if (!this.state.timer) {
-				this.state.running === "Session"
-					? this.startCountdown(this.tickSessionTimer)
-					: this.startCountdown(this.tickBreakTimer);
-			}
-		}
+		//	console.log("Did update Timer");
+		this.handleControls();
 	}
 
-	tickBreakTimer = () => {
-		if (this.state.breakTimerCount > 0) {
-			this.setState({ breakTimerCount: this.state.breakTimerCount - 1 });
-		} else {
-			this.stopCountdown();
+	handleControls = () => {
+		//	console.log("Handling controls");
+		switch (this.props.ctrlstate) {
+			case "play":
+				this.handlePlay();
+				return;
+			case "pause":
+				this.handlePause();
+				return;
+			case "stop":
+				this.handleStop();
+				break;
+			case "reset":
+				this.handleReset();
+				return;
+
+			default:
+				return;
 		}
 	};
 
-	tickSessionTimer = () => {
-		if (this.state.sessionTimerCount > 0) {
-			this.setState({ sessionTimerCount: this.state.sessionTimerCount - 1 });
+	handlePlay = () => {
+		console.log("Handling play");
+		if (this.display.running === "Session") {
+			this.countSession();
 		} else {
-			this.stopCountdown();
+			this.countBreak();
 		}
 	};
 
-	startCountdown = (callback) => {
-		if (!this.state.timer) {
-			this.setState({ timer: setInterval(callback, SPEED) });
-		}
+	handlePause = () => {
+		console.log("Handling pause");
+		this.stopCountdown();
+	};
+
+	handleStop = () => {
+		console.log("Handling stop");
+		this.stopCountdown();
+		// if (this.timer.breakBuf !== this.props.break) {
+		// 	this.timer.breakBuf = this.props.break * 60;
+		// 	this.display.breakTC = this.props.break * 60;
+		// }
+		// if (this.timer.sessionBuf !== this.props.session) {
+		// 	this.timer.sessionBuf = this.props.session * 60;
+		// 	this.display.sessionTC = this.props.session * 60;
+		// }
+	};
+
+	handleReset = () => {
+		console.log("Handling reset");
+		this.stopCountdown();
+		this.timer = {
+			...this.timer,
+			breakBuf: DEF_BREAK * 60,
+			sessionBuf: DEF_SESSION * 60
+		};
 	};
 
 	stopCountdown = () => {
 		console.log("Stopping Timer");
-		if (this.state.timer) {
-			clearInterval(this.state.timer);
-			this.setState({ timer: null });
+		if (this.timer.timer) {
+			clearInterval(this.timer.timer);
+			this.timer.timer = null;
 			console.log("Timer stopped");
 		} else {
 			console.log("No Timer to stop");
 		}
 	};
 
-	// componentWillUnmount() {
-	// 	this.props.clearTimer();
-	// }
+	startCountdown = (callback) => {
+		if (!this.timer.timer) {
+			this.timer.timer = setInterval(callback, SPEED);
+		}
+	};
 
-	// handleTimer = () => {
-	// 	if (!this.props.currtimer) {
-	// 		console.log("Started Timer!!!");
-	// 		this.props.startTimer(
-	// 			setInterval(() => {
-	// 				this.props.countSessionTimer();
-	// 			}, 50)
-	// 		);
-	// 	}
-	// 	if (this.props.timersession === 0 && this.props.running === "Session") {
-	// 		this.props.clearTimer();
-	// 		console.log("Hooyah");
-	// 		this.props.setRunning("Break");
-	// 		this.props.startTimer(
-	// 			setInterval(() => {
-	// 				this.props.countBreakTimer();
-	// 			}, 50)
-	// 		);
-	// 	}
-	// };
+	tickBreakTC = () => {
+		if (this.display.breakTC > 0) {
+			this.display.breakTC -= 1;
+		} else {
+			this.stopCountdown();
+		}
+	};
 
-	// getMinutes = () => {
-	// 	switch (this.props.running) {
-	// 		case "Session":
-	// 			return Math.floor(this.props.timersession / 60);
-	// 		case "Break":
-	// 			return Math.floor(this.props.timerbreak / 60);
-	// 		default:
-	// 			break;
-	// 	}
-	// };
-	// getSeconds = () => {
-	// 	switch (this.props.running) {
-	// 		case "Session":
-	// 			return ("0" + (this.props.timersession % 60)).slice(-2);
-	// 		case "Break":
-	// 			return ("0" + (this.props.timerbreak % 60)).slice(-2);
-	// 		default:
-	// 			break;
-	// 	}
-	// };
+	tickSessionTC = () => {
+		if (this.display.sessionTC > 0) {
+			this.display.sessionTC -= 1;
+		} else {
+			this.stopCountdown();
+		}
+	};
+
+	countSession = () => {
+		if (this.display.sessionTC === 0) {
+			this.display.sessionTC = this.timer.sessionBuf;
+			this.display.running = "Break";
+			this.startCountdown(this.tickBreakTC);
+		} else {
+			if (!this.timer.timer) {
+				this.startCountdown(this.tickSessionTC);
+			}
+		}
+	};
+
+	countBreak = () => {
+		if (this.display.breakTC === 0) {
+			this.display.breakTC = this.timer.sessionBuf;
+			this.display.running = "Session";
+			this.startCountdown(this.tickSessionTC);
+		} else {
+			if (!this.timer.timer) {
+				this.startCountdown(this.tickBreakTC);
+			}
+		}
+	};
 
 	render() {
 		console.log(this.props);
-		console.log(this.state);
+		// console.log(this.state);
+		// console.log(this.buffer);
 		return (
 			<div>
 				Timer.
-				<Display {...this.state} />
+				<Display {...this.display} />
 			</div>
 		);
 	}
