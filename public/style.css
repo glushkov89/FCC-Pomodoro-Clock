@@ -11,22 +11,69 @@
 		left: 0;
 		margin: 0 auto;
 	}
+	#controls {
+		height: 120vh !important;
+		display: flex;
+		flex-direction: column;
+		justify-content: start !important;
+	}
 	#clock-container {
+		margin-top: 0 !important;
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 	}
+	#control-playback-group {
+		margin-top: 5vh;
+	}
+	#session-length,
+	#break-length {
+		font-size: 8vh !important;
+	}
+	#time-left {
+		font-size: 15vh !important;
+	}
+	#timer-label {
+		font-size: 6vh !important;
+	}
+	#session-label,
+	#break-label {
+		font-size: 4.5vh !important;
+	}
+	#reset {
+		font-size: 5.5vh !important;
+	}
+	#start_stop,
+	#stop {
+		font-size: 5vh !important;
+	}
+	#break-increment,
+	#break-decrement,
+	#session-increment,
+	#session-decrement {
+		font-size: 8vh !important;
+	}
+	#time-input {
+		padding-top: 5vh;
+	}
 }
 
 #root {
-	max-width: 40%;
+	max-width: 37%;
 	margin-left: auto;
 	margin-right: auto;
 	font-family: "Roboto", sans-serif;
 }
 
 /*Alignment*/
+
+#controls {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
 
 #time-input,
 #control-playback-group {
@@ -42,16 +89,27 @@
 	width: 50%;
 }
 
-/*Fonts*/
-
-/* #session-length,
-#break-length {
-    font-size: x-large;
+#display {
+	padding: 6vh 0;
+	height: 33vh;
 }
 
-#time-left {
-    font-size: xx-large;
-} */
+#session-label,
+#break-label {
+	padding: 1vh 0;
+}
+
+#start_stop,
+#stop,
+#reset {
+	padding: 2vh 0;
+}
+
+#clock-container {
+	margin-top: 10vh;
+}
+
+/*Fonts*/
 
 .fa-minus {
 	color: white;
@@ -70,14 +128,27 @@
 	font-size: 6vh;
 }
 
+#session-label,
+#break-label {
+	font-size: 3vh;
+}
+
+#reset {
+	font-size: 4.5vh;
+}
+
+#start_stop,
+#stop {
+	font-size: 4vh;
+}
+
 /*BUTTONS*/
 
 #break-increment,
 #break-decrement,
 #session-increment,
 #session-decrement {
-	border: 1px solid green;
-	font-size: 30px;
+	font-size: 6vh;
 }
 
 #break-increment:active,
@@ -87,20 +158,18 @@
 	border: 3px solid green;
 }
 
-#start_stop,
+/* #start_stop,
 #stop {
-	border: 1px solid green;
-	font-size: 20px;
+    border: 1px solid green;
 }
+
+#reset {
+    border: 1px solid green;
+} */
 
 #start_stop:active,
 #stop:active {
 	border: 3px solid green;
-}
-
-#reset {
-	border: 1px solid green;
-	font-size: 20px;
 }
 
 #reset:active {
@@ -111,6 +180,7 @@
 
 #my-footer {
 	text-align: center;
+	margin-bottom: 1vh;
 }
 
 #my-footer a {
@@ -119,12 +189,18 @@
 	font-size: 50px;
 }
 
-/*TEMP*/
-
 #control-session-group,
 #control-break-group,
 #control-playback-group,
 #display {
-	border: 1px solid black;
 	text-align: center;
 }
+
+/*TEMP*/
+
+/* #control-session-group,
+#control-break-group,
+#control-playback-group,
+#display {
+    border: 1px solid black;
+} */
