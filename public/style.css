@@ -1,72 +1,130 @@
-@import url("https://fonts.googleapis.com/css?family=Orbitron");
-@font-face {
-    font-family: "dseg7";
-    src: url("https://glushkov89.github.io/FCC-Javascript-Calculator/fonts/DSEG7CR.ttf") format("truetype"), url("https://glushkov89.github.io/FCC-Javascript-Calculator/fonts/DSEG7CR.woff") format("woff"), url("https://glushkov89.github.io/FCC-Javascript-Calculator/fonts/DSEG7CR.woff2") format("woff2");
-    font-style: normal;
+@import url("https://fonts.googleapis.com/css?family=Roboto:300");
+* {
+	box-sizing: border-box;
 }
 
 @media only screen and (orientation: portrait) {
-    #root {
-        min-width: 95%;
-    }
+	#root {
+		min-width: 100vw;
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0 auto;
+	}
+	#clock-container {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
 }
 
 #root {
-    max-width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+	max-width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Roboto", sans-serif;
 }
 
-/*Calculator styling*/
+/*Alignment*/
 
-/* .calculator-container {
-    max-width: 30%;
-    min-height: 50vh;
-    margin: 10% auto;
-    background-color: #9ca073;
-    border-radius: 10px;
-    box-shadow: 0px 5px 5px 0px #000;
+#time-input,
+#control-playback-group {
+	display: flex;
+	justify-content: space-around;
+}
+
+#control-session-group,
+#control-break-group,
+#start_stop,
+#stop,
+#reset {
+	width: 50%;
+}
+
+/*Fonts*/
+
+/* #session-length,
+#break-length {
+    font-size: x-large;
+}
+
+#time-left {
+    font-size: xx-large;
 } */
 
-/*Display styling*/
-
-/* .display-container {
-    min-height: 10vh;
-    margin: 15px 10%;
-    border-radius: 3px;
-    font-family: "dseg7", sans-serif;
-    color: #4dde93;
-    background-color: #011509;
+.fa-minus {
+	color: white;
 }
 
-#main-display {
-    padding: 15px 0 0 0;
-    height: 30%;
-    font-size: smaller;
-    text-align: center;
-    text-shadow: 0px 0px 10px gray;
+#session-length,
+#break-length {
+	font-size: 6vh;
 }
 
-#display {
-    padding: 15px 10px 10px 5px;
-    height: 40%;
-    font-size: larger;
-    text-align: center;
-    text-shadow: 0px 0px 10px gray;
-} */
-
-/*Footer*/
-
-footer {
-    text-align: center;
+#time-left {
+	font-size: 10vh;
 }
 
-/*-----TEMP-----*/
+#timer-label {
+	font-size: 6vh;
+}
+
+/*BUTTONS*/
+
+#break-increment,
+#break-decrement,
+#session-increment,
+#session-decrement {
+	border: 1px solid green;
+	font-size: 30px;
+}
+
+#break-increment:active,
+#break-decrement:active,
+#session-increment:active,
+#session-decrement:active {
+	border: 3px solid green;
+}
+
+#start_stop,
+#stop {
+	border: 1px solid green;
+	font-size: 20px;
+}
+
+#start_stop:active,
+#stop:active {
+	border: 3px solid green;
+}
+
+#reset {
+	border: 1px solid green;
+	font-size: 20px;
+}
+
+#reset:active {
+	border: 3px solid green;
+}
+
+/*Custom FOOTER*/
+
+#my-footer {
+	text-align: center;
+}
+
+#my-footer a {
+	text-decoration: none;
+	color: green;
+	font-size: 50px;
+}
+
+/*TEMP*/
 
 #control-session-group,
 #control-break-group,
 #control-playback-group,
 #display {
-    border: 1px solid black;
-    text-align: center
+	border: 1px solid black;
+	text-align: center;
 }
