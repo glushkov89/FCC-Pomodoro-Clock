@@ -246,7 +246,6 @@ class Timer extends Component {
 		//console.log(this.timer);
 		return (
 			<div>
-				Timer.
 				<Display {...this.state} />
 			</div>
 		);

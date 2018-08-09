@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Orbitron");
+@font-face {
+    font-family: "dseg7";
+    src: url("https://glushkov89.github.io/FCC-Javascript-Calculator/fonts/DSEG7CR.ttf") format("truetype"), url("https://glushkov89.github.io/FCC-Javascript-Calculator/fonts/DSEG7CR.woff") format("woff"), url("https://glushkov89.github.io/FCC-Javascript-Calculator/fonts/DSEG7CR.woff2") format("woff2");
+    font-style: normal;
+}
+
+@media only screen and (orientation: portrait) {
+    #root {
+        min-width: 95%;
+    }
+}
+
+#root {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Calculator styling*/
+
+/* .calculator-container {
+    max-width: 30%;
+    min-height: 50vh;
+    margin: 10% auto;
+    background-color: #9ca073;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px 0px #000;
+} */
+
+/*Display styling*/
+
+/* .display-container {
+    min-height: 10vh;
+    margin: 15px 10%;
+    border-radius: 3px;
+    font-family: "dseg7", sans-serif;
+    color: #4dde93;
+    background-color: #011509;
+}
+
+#main-display {
+    padding: 15px 0 0 0;
+    height: 30%;
+    font-size: smaller;
+    text-align: center;
+    text-shadow: 0px 0px 10px gray;
+}
+
+#display {
+    padding: 15px 10px 10px 5px;
+    height: 40%;
+    font-size: larger;
+    text-align: center;
+    text-shadow: 0px 0px 10px gray;
+} */
+
+/*Footer*/
+
+footer {
+    text-align: center;
+}
+
+/*-----TEMP-----*/
+
+#control-session-group,
+#control-break-group,
+#control-playback-group,
+#display {
+    border: 1px solid black;
+    text-align: center
+}

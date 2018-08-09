@@ -25,7 +25,6 @@ class Display extends Component {
 		//console.log(this.props);
 		return (
 			<div id="display">
-				Display.
 				<div id="timer-label">{this.props.running}</div>
 				<div id="time-left">
 					{this.getMinutes()}:{this.getSeconds()}

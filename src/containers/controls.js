@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FontAwesome from "react-fontawesome";
 
 //Components
 //import Timer from "../components/timer";
@@ -89,34 +90,41 @@ class Controls extends Component {
 	render() {
 		return (
 			<div id="controls">
-				Controls
-				<button onClick={this.playPause} id="start_stop">
-					Play/Pause
-				</button>
-				<button onClick={this.resetControls} id="reset">
-					Reset
-				</button>
-				<button onClick={this.stop} id="reset">
-					Stop
-				</button>
-				<br />
-				<button onClick={this.decrBreak} id="break-decrement">
-					DOWN
-				</button>
-				<div id="break-label">Break Length</div>
-				<div id="break-length">{this.state.break}</div>
-				<button onClick={this.incrBreak} id="break-increment">
-					UP
-				</button>
-				<br />
-				<button onClick={this.decrSession} id="session-decrement">
-					DOWN
-				</button>
-				<div id="session-label">Session Length</div>
-				<div id="session-length">{this.state.session}</div>
-				<button onClick={this.incrSession} id="session-increment">
-					UP
-				</button>
+				<div id="control-playback-group">
+					<button onClick={this.playPause} id="start_stop">
+						<FontAwesome name="fas fa-play" />
+						<FontAwesome name="fas fa-pause" />
+					</button>
+					<button onClick={this.stop} id="reset">
+						<FontAwesome name="fas fa-stop" />
+					</button>
+					<button onClick={this.resetControls} id="reset">
+						<FontAwesome name="fas fa-undo" />
+					</button>
+				</div>
+
+				<div id="control-break-group">
+					<div id="break-label">Break Length</div>
+					<button onClick={this.incrBreak} id="break-increment">
+						<FontAwesome name="fas fa-angle-up" />
+					</button>
+					<div id="break-length">{this.state.break}</div>
+					<button onClick={this.decrBreak} id="break-decrement">
+						<FontAwesome name="fas fa-angle-down" />
+					</button>
+				</div>
+
+				<div id="control-session-group">
+					<div id="session-label">Session Length</div>
+					<button onClick={this.incrSession} id="session-increment">
+						<FontAwesome name="fas fa-angle-up" />
+					</button>
+					<div id="session-length">{this.state.session}</div>
+					<button onClick={this.decrSession} id="session-decrement">
+						<FontAwesome name="fas fa-angle-down" />
+					</button>
+				</div>
+
 				<Timer
 					{...this.state}
 					// {...this.controls}

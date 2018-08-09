@@ -67,7 +67,6 @@ class PomodoroClock extends Component {
 	render() {
 		return (
 			<div id="pomodoro-clock">
-				Pomodoro Clock.
 				<Controls />
 				<audio
 					id="beep"
