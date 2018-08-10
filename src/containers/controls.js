@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import FontAwesomeIcon from "react-fontawesome";
 
 //Components
-//import Timer from "../components/timer";
 import Timer from "../components/timer_stateful";
 import { DEF_BREAK, DEF_SESSION } from "../components/constants";
 
@@ -24,9 +23,7 @@ class Controls extends Component {
 	stop = () => {
 		this.setState({ ctrlstate: "stop" });
 	};
-	// reset = () => {
-	// 	this.setState({ ctrlstate: "reset" });
-	// };
+
 	playPause = () => {
 		switch (this.state.ctrlstate) {
 			case "stop":
@@ -42,12 +39,6 @@ class Controls extends Component {
 				return;
 		}
 	};
-	// pause = () => {
-	// 	this.setState({ ctrlstate: "pause" });
-	// };
-	// play = () => {
-	// 	this.setState({ ctrlstate: "play" });
-	// };
 
 	incrBreak = () => {
 		if (this.state.ctrlstate === "stop" || this.state.ctrlstate === "reset") {
@@ -81,21 +72,11 @@ class Controls extends Component {
 		}
 	};
 
-	// controls = {
-	// 	stop: this.stop,
-	// 	playPause: this.play,
-	// 	pause: this.pause
-	// };
-
 	render() {
-		//	console.log(this.state);
 		return (
 			<div id="controls">
 				<div id="clock-container">
-					<Timer
-						{...this.state}
-						// {...this.controls}
-					/>
+					<Timer {...this.state} />
 					<div id="time-input">
 						<div id="control-break-group">
 							<div id="break-label" className="hiviz-container">
@@ -206,46 +187,3 @@ class Controls extends Component {
 }
 
 export default Controls;
-
-/* 
- (<FontAwesomeIcon name="fas fa-minus" />) 
-
-<div id="controls">
-				<div id="control-playback-group">
-					<div onClick={this.playPause} id="start_stop">
-						<FontAwesomeIcon name="fas fa-play" />
-						<FontAwesomeIcon name="fas fa-pause" />
-					</div>
-					<div onClick={this.stop} id="reset">
-						<FontAwesomeIcon name="fas fa-stop" />
-					</div>
-					<div onClick={this.resetControls} id="reset">
-						<FontAwesomeIcon name="fas fa-undo" />
-					</div>
-				</div>
-
-				<div id="control-break-group">
-					<div id="break-label">Break Length</div>
-					<div onClick={this.incrBreak} id="break-increment">
-						<FontAwesomeIcon name="fas fa-angle-up" />
-					</div>
-					<div id="break-length">{this.state.break}</div>
-					<div onClick={this.decrBreak} id="break-decrement">
-						<FontAwesomeIcon name="fas fa-angle-down" />
-					</div>
-				</div>
-				<Timer
-					{...this.state}
-					// {...this.controls}
-				/>
-				<div id="control-session-group">
-					<div id="session-label">Session Length</div>
-					<div onClick={this.incrSession} id="session-increment">
-						<FontAwesomeIcon name="fas fa-angle-up" />
-					</div>
-					<div id="session-length">{this.state.session}</div>
-					<div onClick={this.decrSession} id="session-decrement">
-						<FontAwesomeIcon name="fas fa-angle-down" />
-					</div>
-				</div>
-			</div> */

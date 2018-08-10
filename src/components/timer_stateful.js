@@ -19,16 +19,13 @@ class Timer extends Component {
 		start: 0
 	};
 
-	// entry = { reset: true, stop: true };
 	entry = "";
 
 	componentDidUpdate() {
-		//	console.log("Did update Timer");
 		this.handleControls();
 	}
 
 	handleControls = () => {
-		//	console.log("Handling controls");
 		switch (this.props.ctrlstate) {
 			case "play":
 				this.handlePlay();
@@ -42,21 +39,18 @@ class Timer extends Component {
 			case "reset":
 				this.handleReset();
 				return;
-
 			default:
 				return;
 		}
 	};
 
 	handlePause = () => {
-		//	console.log("Handling pause");
 		this.stopCountdown();
 		this.entry = "pause";
 	};
 
 	handleStop = () => {
 		if (this.entry !== "stop") {
-			//	console.log("Handling stop");
 			this.stopCountdown();
 			this.entry = "stop";
 		} else {
@@ -66,7 +60,6 @@ class Timer extends Component {
 
 	handleReset = () => {
 		if (this.entry !== "reset") {
-			//			console.log("Handling reset");
 			this.stopCountdown();
 			const audio = document.getElementById("beep");
 			audio.pause();
@@ -87,57 +80,7 @@ class Timer extends Component {
 		}
 	};
 
-	// toggleEntry=()=>{
-	//     for (const key of Object.keys(this.entry)) {
-	//         obj[key]?
-	//     }
-	// }
-
-	// handlePlay = () => {
-	// 	//		console.log("Handling play");
-	// 	if (this.state.running === "Session") {
-	// 		this.countSession();
-	// 	} else {
-	// 		this.countBreak();
-	// 	}
-	// 	this.entry = { reset: true, stop: true };
-	// };
-
-	// stopCountdown = () => {
-	// 	//	console.log("Stopping Timer");
-	// 	if (this.timer.timer) {
-	// 		clearInterval(this.timer.timer);
-	// 		this.timer.timer = null;
-	// 		this.timer.time = null;
-	// 		//		console.log("Timer stopped");
-	// 	} else {
-	// 		//		console.log("No Timer to stop");
-	// 	}
-	// };
-
-	// startCountdown = (callback) => {
-	// 	if (!this.timer.timer) {
-	// 		this.timer.time = new Date().getTime();
-	// 		this.timer.timer = setInterval(callback, SPEED);
-	// 	}
-	// };
-
-	// tickBreakTC = () => {
-	// 	this.setState({ breakTC: this.state.breakTC - 1 });
-	// };
-
-	// tickSessionTC = () => {
-	// 	// let time = new Date().getTime();
-	// 	// time -= this.timer.time;
-	// 	// this.setState({
-	// 	// 	sessionTC: this.state.sessionTC - Math.floor(time / 1000)
-	// 	// });
-	// 	// this.timer.time = new Date().getTime();
-	// 	this.setState({ sessionTC: this.state.sessionTC - 1 });
-	// };
-
 	handlePlay = () => {
-		//		console.log("Handling play");
 		if (this.entry !== "play") {
 			if (this.state.running === "Session") {
 				this.countSession();
@@ -147,6 +90,7 @@ class Timer extends Component {
 			this.entry = "play";
 		}
 	};
+
 	countSession = () => this.startCountdown(this.tickSessionTC);
 
 	countBreak = () => this.startCountdown(this.tickBreakTC);
@@ -164,7 +108,6 @@ class Timer extends Component {
 	};
 
 	tickBreakTC = () => {
-		//console.log(this.timer);
 		if (this.state.breakTC === 1) {
 			document.getElementById("beep").play();
 		}
@@ -177,12 +120,10 @@ class Timer extends Component {
 		this.setState({ breakTC: this.state.breakTC - 1 });
 		this.timer.time += SPEED;
 		let adj = new Date().getTime() - this.timer.start - this.timer.time;
-		console.log(adj);
 		this.timer.timer = setTimeout(this.tickBreakTC, SPEED - adj);
 	};
 
 	tickSessionTC = () => {
-		//console.log(this.timer);
 		if (this.state.sessionTC === 1) {
 			document.getElementById("beep").play();
 		}
@@ -195,39 +136,8 @@ class Timer extends Component {
 		this.setState({ sessionTC: this.state.sessionTC - 1 });
 		this.timer.time += SPEED;
 		let adj = new Date().getTime() - this.timer.start - this.timer.time;
-		console.log(adj);
 		this.timer.timer = setTimeout(this.tickSessionTC, SPEED - adj);
 	};
-
-	// countSession = () => {
-	// 	if (this.state.sessionTC === 0) {
-	// 		document.getElementById("beep").play();
-	// 	}
-	// 	if (this.state.sessionTC === -1) {
-	// 		this.stopCountdown();
-	// 		this.setState({ sessionTC: this.timer.sessionBuf, running: "Break" });
-	// 		this.startCountdown(this.tickBreakTC);
-	// 	} else {
-	// 		if (!this.timer.timer) {
-	// 			this.startCountdown(this.tickSessionTC);
-	// 		}
-	// 	}
-	// };
-
-	// countBreak = () => {
-	// 	if (this.state.breakTC === 0) {
-	// 		document.getElementById("beep").play();
-	// 	}
-	// 	if (this.state.breakTC === -1) {
-	// 		this.stopCountdown();
-	// 		this.setState({ breakTC: this.timer.breakBuf, running: "Session" });
-	// 		this.startCountdown(this.tickSessionTC);
-	// 	} else {
-	// 		if (!this.timer.timer) {
-	// 			this.startCountdown(this.tickBreakTC);
-	// 		}
-	// 	}
-	// };
 
 	handleIntervalInput() {
 		if (this.timer.breakBuf !== this.props.break * 60) {
@@ -241,9 +151,6 @@ class Timer extends Component {
 	}
 
 	render() {
-		//	console.log(this.props);
-		//console.log(this.state);
-		//console.log(this.timer);
 		return (
 			<div>
 				<Display {...this.state} />

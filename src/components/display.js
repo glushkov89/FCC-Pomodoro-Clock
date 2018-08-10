@@ -22,7 +22,6 @@ class Display extends Component {
 		}
 	};
 	render() {
-		//console.log(this.props);
 		return (
 			<div id="display" className="hiviz-container">
 				<div id="timer-label">{this.props.running}</div>
