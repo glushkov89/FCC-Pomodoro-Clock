@@ -1,84 +1,84 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300");
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 @media only screen and (orientation: portrait) {
-    #root {
-        min-width: 100vw;
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin: 0 auto;
-    }
-    #controls {
-        height: 120vh !important;
-        display: flex;
-        flex-direction: column;
-        justify-content: start !important;
-    }
-    #clock-container {
-        margin-top: 0 !important;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    #control-playback-group {
-        margin-top: 5vh;
-    }
-    #session-length,
-    #break-length {
-        font-size: 8vh !important;
-    }
-    #time-left {
-        font-size: 15vh !important;
-    }
-    #timer-label {
-        font-size: 6vh !important;
-    }
-    #session-label,
-    #break-label {
-        font-size: 4.5vh !important;
-    }
-    #reset {
-        font-size: 5.5vh !important;
-    }
-    #start_stop,
-    #stop {
-        font-size: 5vh !important;
-    }
-    #break-increment,
-    #break-decrement,
-    #session-increment,
-    #session-decrement {
-        font-size: 8vh !important;
-    }
-    #time-input {
-        padding-top: 5vh;
-    }
+	#root {
+		min-width: 100vw;
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0 auto;
+	}
+	#controls {
+		height: 120vh !important;
+		display: flex;
+		flex-direction: column;
+		justify-content: start !important;
+	}
+	#clock-container {
+		margin-top: 0 !important;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	#control-playback-group {
+		margin-top: 5vh;
+	}
+	#session-length,
+	#break-length {
+		font-size: 8vh !important;
+	}
+	#time-left {
+		font-size: 15vh !important;
+	}
+	#timer-label {
+		font-size: 6vh !important;
+	}
+	#session-label,
+	#break-label {
+		font-size: 4.5vh !important;
+	}
+	#reset {
+		font-size: 5.5vh !important;
+	}
+	#start_stop,
+	#stop {
+		font-size: 5vh !important;
+	}
+	#break-increment,
+	#break-decrement,
+	#session-increment,
+	#session-decrement {
+		font-size: 8vh !important;
+	}
+	#time-input {
+		padding-top: 5vh;
+	}
 }
 
 #root {
-    max-width: 37%;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: "Roboto", sans-serif;
+	max-width: 37%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Roboto", sans-serif;
 }
 
 /*Alignment*/
 
 #controls {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 #time-input,
 #control-playback-group {
-    display: flex;
-    justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
 }
 
 #control-session-group,
@@ -86,70 +86,79 @@
 #start_stop,
 #stop,
 #reset {
-    width: 50%;
+	width: 50%;
 }
 
 #display {
-    padding: 6vh 0;
-    height: 33vh;
+	padding: 6vh 0;
+	height: 33vh;
 }
 
 #session-label,
 #break-label {
-    padding: 1vh 0;
+	padding: 1vh 0;
 }
 
 #start_stop,
 #stop,
 #reset {
-    padding: 2vh 0;
+	padding: 2vh 0;
 }
 
 #clock-container {
-    margin-top: 10vh;
+	margin-top: 10vh;
 }
 
 /*Fonts*/
 
-.fa-minus {
-    color: black;
-}
-
 #session-length,
 #break-length {
-    font-size: 6vh;
+	font-size: 6vh;
 }
 
 #time-left {
-    font-size: 10vh;
+	font-size: 10vh;
 }
 
 #timer-label {
-    font-size: 6vh;
+	font-size: 6vh;
 }
 
 #session-label,
 #break-label {
-    font-size: 3vh;
+	font-size: 3vh;
 }
 
 #reset {
-    font-size: 4.5vh;
+	font-size: 4.5vh;
 }
 
 #start_stop,
 #stop {
-    font-size: 4vh;
+	font-size: 4vh;
 }
 
 /*---------fa-icons*/
 
 .f-a-button {
-    opacity: 0.2;
+	opacity: 0.5;
+	color: green;
 }
 
 .f-a-minus {
-    opacity: 0;
+	opacity: 0;
+	color: black;
+}
+
+/*Full visibility elements styling*/
+
+#session-length,
+#break-length,
+#session-label,
+#break-label,
+#timer-label,
+#time-left {
+	color: aqua;
 }
 
 /*BUTTONS*/
@@ -158,14 +167,14 @@
 #break-decrement,
 #session-increment,
 #session-decrement {
-    font-size: 6vh;
+	font-size: 6vh;
 }
 
 #break-increment:active,
 #break-decrement:active,
 #session-increment:active,
 #session-decrement:active {
-    border: 3px solid green;
+	border: 1px solid green;
 }
 
 /* #start_stop,
@@ -179,31 +188,31 @@
 
 #start_stop:active,
 #stop:active {
-    border: 3px solid green;
+	border: 3px solid green;
 }
 
 #reset:active {
-    border: 3px solid green;
+	border: 3px solid green;
 }
 
 /*Custom FOOTER*/
 
 #my-footer {
-    text-align: center;
-    margin-bottom: 1vh;
+	text-align: center;
+	margin-bottom: 1vh;
 }
 
 #my-footer a {
-    text-decoration: none;
-    color: green;
-    font-size: 50px;
+	text-decoration: none;
+	color: green;
+	font-size: 50px;
 }
 
 #control-session-group,
 #control-break-group,
 #control-playback-group,
 #display {
-    text-align: center;
+	text-align: center;
 }
 
 /*TEMP*/

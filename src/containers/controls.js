@@ -103,7 +103,10 @@ class Controls extends Component {
 								{this.state.break === 60 ? (
 									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
-									<FontAwesomeIcon name="fas fa-angle-up" />
+									<FontAwesomeIcon
+										name="fas fa-angle-up"
+										className="f-a-button"
+									/>
 								)}
 							</div>
 							<div id="break-length">{this.state.break}</div>
@@ -111,7 +114,10 @@ class Controls extends Component {
 								{this.state.break === 1 ? (
 									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
-									<FontAwesomeIcon name="fas fa-angle-down" />
+									<FontAwesomeIcon
+										name="fas fa-angle-down"
+										className="f-a-button"
+									/>
 								)}
 							</div>
 						</div>
@@ -121,7 +127,10 @@ class Controls extends Component {
 								{this.state.session === 60 ? (
 									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
-									<FontAwesomeIcon name="fas fa-angle-up" />
+									<FontAwesomeIcon
+										name="fas fa-angle-up"
+										className="f-a-button"
+									/>
 								)}
 							</div>
 							<div id="session-length">{this.state.session}</div>
@@ -129,7 +138,10 @@ class Controls extends Component {
 								{this.state.session === 1 ? (
 									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
-									<FontAwesomeIcon name="fas fa-angle-down" />
+									<FontAwesomeIcon
+										name="fas fa-angle-down"
+										className="f-a-button"
+									/>
 								)}
 							</div>
 						</div>
