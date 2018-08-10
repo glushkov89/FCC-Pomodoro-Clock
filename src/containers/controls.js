@@ -98,8 +98,14 @@ class Controls extends Component {
 					/>
 					<div id="time-input">
 						<div id="control-break-group">
-							<div id="break-label">Break</div>
-							<div onClick={this.incrBreak} id="break-increment">
+							<div id="break-label" className="hiviz-container">
+								Break
+							</div>
+							<div
+								onClick={this.incrBreak}
+								id="break-increment"
+								className="button-container"
+							>
 								{this.state.break === 60 ? (
 									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
@@ -109,8 +115,14 @@ class Controls extends Component {
 									/>
 								)}
 							</div>
-							<div id="break-length">{this.state.break}</div>
-							<div onClick={this.decrBreak} id="break-decrement">
+							<div id="break-length" className="hiviz-container">
+								{this.state.break}
+							</div>
+							<div
+								onClick={this.decrBreak}
+								id="break-decrement"
+								className="button-container"
+							>
 								{this.state.break === 1 ? (
 									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
@@ -122,8 +134,14 @@ class Controls extends Component {
 							</div>
 						</div>
 						<div id="control-session-group">
-							<div id="session-label">Session</div>
-							<div onClick={this.incrSession} id="session-increment">
+							<div id="session-label" className="hiviz-container">
+								Session
+							</div>
+							<div
+								onClick={this.incrSession}
+								id="session-increment"
+								className="button-container"
+							>
 								{this.state.session === 60 ? (
 									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
@@ -133,8 +151,14 @@ class Controls extends Component {
 									/>
 								)}
 							</div>
-							<div id="session-length">{this.state.session}</div>
-							<div onClick={this.decrSession} id="session-decrement">
+							<div id="session-length" className="hiviz-container">
+								{this.state.session}
+							</div>
+							<div
+								onClick={this.decrSession}
+								id="session-decrement"
+								className="button-container"
+							>
 								{this.state.session === 1 ? (
 									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
@@ -147,14 +171,22 @@ class Controls extends Component {
 						</div>
 					</div>
 					<div id="control-playback-group">
-						<div onClick={this.playPause} id="start_stop">
+						<div
+							onClick={this.playPause}
+							id="start_stop"
+							className="button-container"
+						>
 							<FontAwesomeIcon name="fas fa-play" className="f-a-button" />
 							<FontAwesomeIcon name="fas fa-pause" className="f-a-button" />
 						</div>
-						<div onClick={this.stop} id="stop">
+						<div onClick={this.stop} id="stop" className="button-container">
 							<FontAwesomeIcon name="fas fa-stop" className="f-a-button" />
 						</div>
-						<div onClick={this.resetControls} id="reset">
+						<div
+							onClick={this.resetControls}
+							id="reset"
+							className="button-container"
+						>
 							<FontAwesomeIcon name="fas fa-undo" className="f-a-button" />
 						</div>
 					</div>
