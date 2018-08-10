@@ -2,7 +2,7 @@
 	"name": "fcc-pomodoro-clock",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "http://glushkov89.github.io/FCC-Pomodoro-Clock",
+	"homepage": "https://glushkov89.github.io/FCC-Pomodoro-Clock",
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.2",
 		"@fortawesome/free-solid-svg-icons": "^5.2.0",
