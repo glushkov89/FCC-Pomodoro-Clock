@@ -309,6 +309,10 @@ html {
 	font-size: 5vh;
 }
 
+.credentials {
+	font-size: 1.5vh !important;
+}
+
 #control-session-group,
 #control-break-group,
 #control-playback-group,

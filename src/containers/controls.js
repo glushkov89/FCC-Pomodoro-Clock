@@ -180,6 +180,32 @@ class Controls extends Component {
 					>
 						<FontAwesomeIcon name="fas fa-github" />
 					</a>
+					<br />
+					<a
+						className="credentials"
+						href="http://www.orangefreesounds.com/cool-alarm-tone-notification-sound/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Alarm sound.
+					</a>
+					<br />
+					<a
+						className="credentials"
+						href="https://unsplash.com/photos/ue-RW8OT2xk"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Landscape background.
+					</a>
+					<a
+						className="credentials"
+						href="https://unsplash.com/photos/ccTuLk6nNO8"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Portrait background.
+					</a>
 				</div>
 			</div>
 		);
