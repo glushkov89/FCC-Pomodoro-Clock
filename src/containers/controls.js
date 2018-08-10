@@ -101,7 +101,7 @@ class Controls extends Component {
 							<div id="break-label">Break</div>
 							<div onClick={this.incrBreak} id="break-increment">
 								{this.state.break === 60 ? (
-									<FontAwesomeIcon name="fas fa-minus" />
+									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
 									<FontAwesomeIcon name="fas fa-angle-up" />
 								)}
@@ -109,7 +109,7 @@ class Controls extends Component {
 							<div id="break-length">{this.state.break}</div>
 							<div onClick={this.decrBreak} id="break-decrement">
 								{this.state.break === 1 ? (
-									<FontAwesomeIcon name="fas fa-minus" />
+									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
 									<FontAwesomeIcon name="fas fa-angle-down" />
 								)}
@@ -119,14 +119,16 @@ class Controls extends Component {
 							<div id="session-label">Session</div>
 							<div onClick={this.incrSession} id="session-increment">
 								{this.state.session === 60 ? (
-									<FontAwesomeIcon name="fas fa-minus" />
+									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
 								) : (
 									<FontAwesomeIcon name="fas fa-angle-up" />
 								)}
 							</div>
 							<div id="session-length">{this.state.session}</div>
 							<div onClick={this.decrSession} id="session-decrement">
-								{this.state.session === 1 ? null : (
+								{this.state.session === 1 ? (
+									<FontAwesomeIcon name="fas fa-minus" className="f-a-minus" />
+								) : (
 									<FontAwesomeIcon name="fas fa-angle-down" />
 								)}
 							</div>
@@ -134,14 +136,14 @@ class Controls extends Component {
 					</div>
 					<div id="control-playback-group">
 						<div onClick={this.playPause} id="start_stop">
-							<FontAwesomeIcon name="fas fa-play" />
-							<FontAwesomeIcon name="fas fa-pause" />
+							<FontAwesomeIcon name="fas fa-play" className="f-a-button" />
+							<FontAwesomeIcon name="fas fa-pause" className="f-a-button" />
 						</div>
 						<div onClick={this.stop} id="stop">
-							<FontAwesomeIcon name="fas fa-stop" />
+							<FontAwesomeIcon name="fas fa-stop" className="f-a-button" />
 						</div>
 						<div onClick={this.resetControls} id="reset">
-							<FontAwesomeIcon name="fas fa-undo" />
+							<FontAwesomeIcon name="fas fa-undo" className="f-a-button" />
 						</div>
 					</div>
 				</div>
