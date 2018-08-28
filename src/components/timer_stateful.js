@@ -100,7 +100,6 @@ class Timer extends Component {
 		this.timer.timer = null;
 		this.timer.time = 0;
 		this.timer.start = 0;
-		console.log("Timer stopped");
 	};
 
 	startCountdown = (callback) => {
