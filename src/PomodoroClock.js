@@ -70,7 +70,7 @@ class PomodoroClock extends Component {
 				<Controls />
 				<audio
 					id="beep"
-					// src="https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3"
+					//src="https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3"
 					src="https://res.cloudinary.com/deshlug3j/video/upload/v1533900710/Sound/Cool-alarm-tone-notification-sound.mp3"
 				/>
 			</div>

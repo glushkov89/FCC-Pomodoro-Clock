@@ -34,7 +34,6 @@ class Controls extends Component {
 			case "play":
 				this.setState({ ctrlstate: "pause" });
 				return;
-
 			default:
 				return;
 		}

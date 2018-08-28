@@ -61,6 +61,9 @@ class Timer extends Component {
 	handleReset = () => {
 		if (this.entry !== "reset") {
 			this.stopCountdown();
+			const audio = document.getElementById("beep");
+			audio.pause();
+			audio.currentTime = 0;
 			this.timer = {
 				...this.timer,
 				breakBuf: DEF_BREAK * 60,
@@ -75,9 +78,6 @@ class Timer extends Component {
 		} else {
 			this.handleIntervalInput();
 		}
-		const audio = document.getElementById("beep");
-		audio.pause();
-		audio.currentTime = 0;
 	};
 
 	handlePlay = () => {
@@ -100,7 +100,6 @@ class Timer extends Component {
 		this.timer.timer = null;
 		this.timer.time = 0;
 		this.timer.start = 0;
-		console.log("Timer stopped");
 	};
 
 	startCountdown = (callback) => {

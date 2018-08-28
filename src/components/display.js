@@ -4,9 +4,11 @@ class Display extends Component {
 	getMinutes = () => {
 		switch (this.props.running) {
 			case "Session":
-				return Math.floor(this.props.sessionTC / 60);
+				//return Math.floor(this.props.sessionTC / 60);
+				return ("0" + Math.floor(this.props.sessionTC / 60)).slice(-2);
 			case "Break":
-				return Math.floor(this.props.breakTC / 60);
+				//return Math.floor(this.props.breakTC / 60);
+				return ("0" + Math.floor(this.props.breakTC / 60)).slice(-2);
 			default:
 				break;
 		}
